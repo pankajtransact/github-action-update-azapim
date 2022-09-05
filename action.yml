@@ -17,6 +17,9 @@ inputs:
   swaggerPathType:
     required: true
     description: 'Swagger path type [url or local]'
+  apimPath:
+    required: false
+    description: 'APIM Path Property. See https://docs.microsoft.com/en-us/rest/api/apimanagement/current-ga/apis/create-or-update?source=recommendations&tabs=HTTP'
 runs:
   using: 'node12'
   main: 'dist/index.js'
