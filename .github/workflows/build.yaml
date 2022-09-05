@@ -1,0 +1,25 @@
+name: 'Manual test'
+on: 
+  workflow_dispatch:
+
+jobs:
+  build: # make sure build/ci work properly
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          npm install
+      - run: |
+          npm run all
+      - run: |
+      - name: GIT commit and push docs
+        env: 
+          CI_COMMIT_MESSAGE: Continuous Integration Build Artifacts
+          CI_COMMIT_AUTHOR: Continuous Integration
+       run: |
+          git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
+          git config --global user.email "pankaj.sharma@transactcampus.com"
+          git pull
+          git commit -a -m "${{ env.CI_COMMIT_MESSAGE }}"
+          git push   
