@@ -64,7 +64,7 @@ async function run(): Promise<void> {
     }
     
     core.info('Starting to process')
-    core.info('Content type = ', 'openapi'+ formatType)
+    core.info('openapi'+ formatType)
     core.info(`${swaggerUrl}`)
      
     const putData = {
