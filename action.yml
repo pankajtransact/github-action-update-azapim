@@ -13,7 +13,7 @@ inputs:
     description: 'APIM credentials'
   swaggerType:
     required: true
-    description: 'Swagger type [json or yaml]
+    description: 'Swagger type [json or yaml]'
   swaggerPathType:
     required: true
     description: 'Swagger path type [url or local]'
