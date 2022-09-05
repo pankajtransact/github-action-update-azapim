@@ -588,6 +588,7 @@ function run() {
             core.info('Starting to process');
             core.info(formatType);
             core.info(`${swaggerUrl}`);
+            core.info(`${apimPath}`);
             const putData = {
                 properties: {
                     format: `${formatType}`,
