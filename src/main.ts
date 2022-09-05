@@ -63,6 +63,7 @@ async function run(): Promise<void> {
        formatType = linkType
     }
     
+    core.info('Starting to process')
     core.info('Content type = ', 'openapi'+ formatType)
     core.info(`${swaggerUrl}`)
      
