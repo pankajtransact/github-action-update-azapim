@@ -21,11 +21,11 @@ async function run(): Promise<void> {
     if (creds == null) {
       core.setFailed('Missing access token from input')
     }
-    if (swaggerType = null){
+    if (swaggerType == null){
       core.setFailed('Missing swagger type. Expecting json or yaml')
     }
     
-   if (swaggerPathType = null){
+   if (swaggerPathType == null){
       core.setFailed('Missing swagger path type. Expecting url or local')
     }
     
