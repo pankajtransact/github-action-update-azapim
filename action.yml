@@ -2,15 +2,21 @@ name: 'Update Azure API Management'
 description: 'This GitHub Action allows you to update your Azure API Management api from an OpenAPI endpoint or file.'
 author: 'Solidify'
 inputs:
-  swaggerUrl:
+  swaggerPath:
     required: true
-    description: 'URL to Swagger'
+    description: 'URL or Path to Swagger'
   apiManagementEndpointUrl:
     required: true
     description: 'APIM endpoint URL'
   creds:
     required: true
     description: 'APIM credentials'
+  swaggerType:
+    required: true
+    description: 'Swagger type [json or yaml]
+  swaggerPathType:
+    required: true
+    description: 'Swagger path type [url or local]'
 runs:
   using: 'node12'
   main: 'dist/index.js'
