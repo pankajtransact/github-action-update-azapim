@@ -50,26 +50,26 @@ async function run(): Promise<void> {
       core.error(err)
     }
     
-    let formatType = '';
+    let formatType = 'openapi';
     let linkType = '';
     
-    if (swaggerPathType == 'url'){
+    if (swaggerPathType === 'url'){
       linkType = '-link';
     }
     
-    if (swaggerType == 'json'){
+    if (swaggerType === 'json'){
        formatType = '+json' + linkType;
     }else{
        formatType = linkType
     }
     
     core.info('Starting to process')
-    core.info('openapi'+ formatType)
+    core.info(formatType)
     core.info(`${swaggerUrl}`)
      
     const putData = {
       properties: {
-        format: 'openapi'+ formatType,
+        format: formatType,
         value: `${swaggerUrl}`,
         path: 'hallsoll'
       }
