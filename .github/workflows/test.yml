@@ -7,20 +7,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Define environment
-        env:
-          CI_COMMIT_MESSAGE: Continuous Integration Build Artifacts
-          CI_COMMIT_AUTHOR: Continuous Integration  
       - uses: actions/checkout@v2
       - run: |
           npm install
       - run: |
           npm run all
       - run: |
-          git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
-          git config --global user.email "username@users.noreply.github.com"
+          git config --global user.name "Continuous Integration"
+          git config --global user.email "pankaj.sharma@transactcampus.com"
           git pull
-          git commit -a -m "${{ env.CI_COMMIT_MESSAGE }}"
+          git commit -a -m "Continuous Integration Build Artifacts"
           git push
           
   test: # make sure the action works
