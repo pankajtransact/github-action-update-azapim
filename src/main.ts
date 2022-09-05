@@ -63,7 +63,8 @@ async function run(): Promise<void> {
        formatType = linkType
     }
     
-    
+    core.info('Content type = ', 'openapi'+ formatType)
+    core.info(`${swaggerUrl}`)
      
     const putData = {
       properties: {
