@@ -7,6 +7,7 @@ async function run(): Promise<void> {
     const swaggerUrl: string = core.getInput('swaggerPath')
     const swaggerType: string = core.getInput('swaggerType')
     const swaggerPathType: string = core.getInput('swaggerPathType')
+    const apimPath: String = core.getInput('apimPath')
     const apiManagementEndpointUrl: string = core.getInput(
       'apiManagementEndpointUrl'
     )
@@ -71,7 +72,7 @@ async function run(): Promise<void> {
       properties: {
         format: `${formatType}`,
         value: `${swaggerUrl}`,
-        path: 'hallsoll'
+        path: `${apimPath}`
       }
     }
 
