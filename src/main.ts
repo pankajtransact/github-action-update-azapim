@@ -67,6 +67,7 @@ async function run(): Promise<void> {
     core.info('Starting to process')
     core.info(formatType)
     core.info(`${swaggerUrl}`)
+    core.info(`${apimPath}`)
 
     const putData = {
       properties: {
