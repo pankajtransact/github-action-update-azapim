@@ -58,9 +58,9 @@ async function run(): Promise<void> {
     }
     
     if (swaggerType === 'json'){
-       formatType = `openapi+json{linkType}`;
+       formatType = `openapi+json${linkType}`;
     }else{
-       formatType = `openapi{linkType}`
+       formatType = `openapi${linkType}`
     }
     
     core.info('Starting to process')
