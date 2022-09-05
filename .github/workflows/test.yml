@@ -22,3 +22,5 @@ jobs:
           swaggerUrl: ${{ secrets.SWAGGER_URL }}
           apiManagementEndpointUrl: ${{ secrets.AZURE_APIM_URL }}
           creds: ${{ secrets.AZURE_CREDENTIALS }}
+          swaggerType: 'json'
+          swaggerPathType: 'url'
