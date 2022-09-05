@@ -2,6 +2,8 @@ import * as core from '@actions/core'
 import axios from 'axios'
 import * as fs from 'fs'
 
+xxxxx
+
 async function run(): Promise<void> {
   try {
     const swaggerUrl: string = core.getInput('swaggerPath')
