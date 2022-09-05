@@ -19,7 +19,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: ./
         with:
-          swaggerUrl: ${{ secrets.SWAGGER_URL }}
+          swaggerPath: ${{ secrets.SWAGGER_URL }}
           apiManagementEndpointUrl: ${{ secrets.AZURE_APIM_URL }}
           creds: ${{ secrets.AZURE_CREDENTIALS }}
           swaggerType: 'json'
