@@ -1,6 +1,6 @@
 import * as core from '@actions/core'
 import axios from 'axios'
-import * as fs from 'fs'
+//import * as fs from 'fs'
 
 async function run(): Promise<void> {
   try {
@@ -50,8 +50,8 @@ async function run(): Promise<void> {
       core.error(err)
     }
     
-    var formatType = '';
-    var linkType = '';
+    let formatType = '';
+    let linkType = '';
     
     if (swaggerPathType == 'url'){
       linkType = '-link';
