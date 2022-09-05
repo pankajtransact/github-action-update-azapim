@@ -69,7 +69,7 @@ async function run(): Promise<void> {
      
     const putData = {
       properties: {
-        format: `${formatType},
+        format: `${formatType}`,
         value: `${swaggerUrl}`,
         path: 'hallsoll'
       }
