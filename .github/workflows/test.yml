@@ -7,9 +7,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - env:
+      - name: Define environment
+        env:
           CI_COMMIT_MESSAGE: Continuous Integration Build Artifacts
-          CI_COMMIT_AUTHOR: Continuous Integration    
+          CI_COMMIT_AUTHOR: Continuous Integration  
       - uses: actions/checkout@v2
       - run: |
           npm install
