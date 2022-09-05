@@ -539,6 +539,7 @@ function run() {
             const swaggerUrl = core.getInput('swaggerPath');
             const swaggerType = core.getInput('swaggerType');
             const swaggerPathType = core.getInput('swaggerPathType');
+            const apimPath = core.getInput('apimPath');
             const apiManagementEndpointUrl = core.getInput('apiManagementEndpointUrl');
             const creds = core.getInput('creds');
             if (swaggerUrl == null) {
@@ -591,7 +592,7 @@ function run() {
                 properties: {
                     format: `${formatType}`,
                     value: `${swaggerUrl}`,
-                    path: 'hallsoll'
+                    path: `${apimPath}`
                 }
             };
             //PUT get response to API manager
