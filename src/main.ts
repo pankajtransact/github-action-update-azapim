@@ -21,14 +21,14 @@ async function run(): Promise<void> {
     if (creds == null) {
       core.setFailed('Missing access token from input')
     }
-    if (swaggerType == null){
+    if (swaggerType == null) {
       core.setFailed('Missing swagger type. Expecting json or yaml')
     }
-    
-   if (swaggerPathType == null){
+
+    if (swaggerPathType == null) {
       core.setFailed('Missing swagger path type. Expecting url or local')
     }
-    
+
     //Request an OAUth Token
     core.info('Parse Json')
     const jsonObj = JSON.parse(creds)
@@ -49,24 +49,24 @@ async function run(): Promise<void> {
     } catch (err) {
       core.error(err)
     }
-    
-    let formatType = 'openapi';
-    let linkType = '';
-    
-    if (swaggerPathType === 'url'){
-      linkType = '-link';
+
+    let formatType = 'openapi'
+    let linkType = ''
+
+    if (swaggerPathType === 'url') {
+      linkType = '-link'
     }
-    
-    if (swaggerType === 'json'){
-       formatType = `openapi+json${linkType}`;
-    }else{
-       formatType = `openapi${linkType}`
+
+    if (swaggerType === 'json') {
+      formatType = `openapi+json${linkType}`
+    } else {
+      formatType = `openapi${linkType}`
     }
-    
+
     core.info('Starting to process')
     core.info(formatType)
     core.info(`${swaggerUrl}`)
-     
+
     const putData = {
       properties: {
         format: `${formatType}`,
