@@ -111,9 +111,9 @@ async function run(): Promise<void> {
 
     const putData = {
       properties: {
-        format: `${formatType}`,
-        value: `${swaggerContent}`,
-        path: `${apimPath}`
+        format: `'${formatType}'`,
+        value: `'${swaggerContent}'`,
+        path: `'${apimPath}'`
       }
     }
 
