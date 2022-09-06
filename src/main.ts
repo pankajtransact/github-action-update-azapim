@@ -52,7 +52,7 @@ async function run(): Promise<void> {
       scope: 'https://management.azure.com/.default'
     }
 
-    core.debug(credData)
+    core.debug(JSON.stringify(credData))
     
     let response = null
     try {
