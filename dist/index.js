@@ -581,7 +581,8 @@ function run() {
                 core.info(response.data);
             }
             catch (err) {
-                core.error(err.response);
+                core.error("Error getting token");
+                core.error(err.response.request._response);
             }
             /*try {
               response = await axios.post(
