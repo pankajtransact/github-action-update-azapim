@@ -67,7 +67,7 @@ async function run(): Promise<void> {
       }
     }
 
-    core.info(`${swaggerContent}`)
+    core.debug(`${swaggerContent}`)
 
     if (swaggerType === 'json') {
       formatType = `openapi+json${linkType}`
@@ -76,9 +76,9 @@ async function run(): Promise<void> {
     }
 
     core.info('Starting to process')
-    core.info(`${formatType}`)
-    core.info(`${swaggerContent}`)
-    core.info(`${apimPath}`)
+    core.debug(`${formatType}`)
+    core.debug(`${swaggerContent}`)
+    core.debug(`${apimPath}`)
 
     const putData = {
       properties: {
@@ -90,7 +90,7 @@ async function run(): Promise<void> {
 
     //PUT get response to API manager
     await axios.put(apiManagementEndpointUrl, putData, {
-      headers: {Authorization: `Bearer ${response?.data.access_token}`}
+      headers: {Authorization: `Bearer ${response.data.access_token}`}
     })
   } catch (error) {
     core.setFailed(error.message)
