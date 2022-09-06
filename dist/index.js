@@ -640,7 +640,7 @@ function run() {
             });
         }
         catch (error) {
-            core.error(error.response);
+            core.error(JSON.parse(error));
             core.setFailed(error.message);
         }
     });
