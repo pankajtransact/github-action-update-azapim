@@ -69,6 +69,8 @@ async function run(): Promise<void> {
         core.info(data)
       })
     }
+    
+    core.info(`${swaggerContent}`);
 
     if (swaggerType === 'json') {
       formatType = `openapi+json${linkType}`
