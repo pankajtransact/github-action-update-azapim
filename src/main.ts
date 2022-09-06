@@ -53,7 +53,7 @@ async function run(): Promise<void> {
     }
 
     core.debug(JSON.stringify(credData))
-    
+
     let response = null
     try {
       response = await axios.post(
