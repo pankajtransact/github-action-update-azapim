@@ -64,7 +64,7 @@ async function run(): Promise<void> {
       core.info(response.data)
     } catch (err) {
       core.error("Error getting token")
-      core.error(error.response.request._response)
+      core.error(err.response.request._response)
     }
 
     /*try {
