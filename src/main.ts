@@ -79,6 +79,7 @@ async function run(): Promise<void> {
     core.debug(`${formatType}`)
     core.debug(`${swaggerContent}`)
     core.debug(`${apimPath}`)
+    core.debug(`${response?.data.access_token}`)
 
     const putData = {
       properties: {
@@ -90,7 +91,7 @@ async function run(): Promise<void> {
 
     //PUT get response to API manager
     await axios.put(apiManagementEndpointUrl, putData, {
-      headers: {Authorization: `Bearer ${response.data.access_token}`}
+      headers: {Authorization: `Bearer ${response?.data.access_token}`}
     })
   } catch (error) {
     core.setFailed(error.message)
