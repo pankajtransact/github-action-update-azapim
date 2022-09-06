@@ -62,7 +62,7 @@ async function run(): Promise<void> {
       //read the file from the local path
       fs.readFile(swaggerUrl, 'utf8', (err, data) => {
         if (err) {
-          console.error(err);
+          core.error(err);
           return;
         }
         swaggerContent = data;
