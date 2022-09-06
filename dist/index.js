@@ -568,14 +568,30 @@ function run() {
             core.info('Get token');
             core.debug(`https://login.microsoftonline.com/${jsonObj.tenantId}/oauth2/v2.0/token`);
             core.debug(`grant_type=client_credentials&client_id=${jsonObj.clientId}&client_secret=${jsonObj.clientSecret}&resource=https%3A%2F%2Fmanagement.azure.com%2F`);
+            const credData = {
+                grant_type: 'client_credentials',
+                client_id: `${jsonObj.clientId}`,
+                client_secret: `${jsonObj.clientSecret}`,
+                scope: 'https://management.azure.com/.default'
+            };
             let response = null;
             try {
-                response = yield axios_1.default.post(`https://login.microsoftonline.com/${jsonObj.tenantId}/oauth2/v2.0/token`, `grant_type=client_credentials&client_id=${jsonObj.clientId}&client_secret=${jsonObj.clientSecret}&resource=https://management.azure.com/.default`, config);
+                response = yield axios_1.default.post(`https://login.microsoftonline.com/${jsonObj.tenantId}/oauth2/v2.0/token`, credData, config);
                 core.info(response.data);
             }
             catch (err) {
                 core.error(err);
             }
+            /*try {
+              response = await axios.post(
+                `https://login.microsoftonline.com/${jsonObj.tenantId}/oauth2/v2.0/token`,
+                `grant_type=client_credentials&client_id=${jsonObj.clientId}&client_secret=${jsonObj.clientSecret}&resource=https://management.azure.com/.default`,
+                config
+              )
+              core.info(response.data)
+            } catch (err) {
+              core.error(err)
+            }*/
             let formatType = 'openapi';
             let linkType = '';
             let swaggerContent = swaggerUrl;

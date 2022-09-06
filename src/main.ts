@@ -51,7 +51,7 @@ async function run(): Promise<void> {
       client_secret: `${jsonObj.clientSecret}`,
       scope: 'https://management.azure.com/.default'
     }
-    
+
     let response = null
     try {
       response = await axios.post(
@@ -63,7 +63,7 @@ async function run(): Promise<void> {
     } catch (err) {
       core.error(err)
     }
-    
+
     /*try {
       response = await axios.post(
         `https://login.microsoftonline.com/${jsonObj.tenantId}/oauth2/v2.0/token`,
