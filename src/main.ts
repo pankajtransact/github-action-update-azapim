@@ -39,8 +39,12 @@ async function run(): Promise<void> {
       }
     }
     core.info('Get token')
-    core.debug(`https://login.microsoftonline.com/${jsonObj.tenantId}/oauth2/v2.0/token`)
-    core.debug(`grant_type=client_credentials&client_id=${jsonObj.clientId}&client_secret=${jsonObj.clientSecret}&resource=https%3A%2F%2Fmanagement.azure.com%2F`)
+    core.debug(
+      `https://login.microsoftonline.com/${jsonObj.tenantId}/oauth2/v2.0/token`
+    )
+    core.debug(
+      `grant_type=client_credentials&client_id=${jsonObj.clientId}&client_secret=${jsonObj.clientSecret}&resource=https%3A%2F%2Fmanagement.azure.com%2F`
+    )
     let response = null
     try {
       response = await axios.post(
