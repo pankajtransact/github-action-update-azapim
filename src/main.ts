@@ -1,6 +1,7 @@
 import * as core from '@actions/core'
 import axios from 'axios'
 import fs from 'fs'
+import qs from 'querystring'
 
 async function run(): Promise<void> {
   try {
@@ -58,13 +59,13 @@ async function run(): Promise<void> {
     try {
       response = await axios.post(
         `https://login.microsoftonline.com/${jsonObj.tenantId}/oauth2/v2.0/token`,
-        credData,
+        qs.stringify(credData),
         config
       )
       core.info(response.data)
     } catch (err) {
       core.error('Error getting token')
-      core.error(err.response.request._response)
+      core.error(JSON.stringify(err))
     }
 
     /*try {
