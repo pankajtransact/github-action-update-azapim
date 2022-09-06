@@ -588,6 +588,7 @@ function run() {
                         return;
                     }
                     swaggerContent = data;
+                    core.info(data);
                 });
             }
             if (swaggerType === 'json') {
