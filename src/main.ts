@@ -118,7 +118,7 @@ async function run(): Promise<void> {
     }
 
     //PUT get response to API manager
-    await axios.put(apiManagementEndpointUrl, putData, {
+    await axios.put(apiManagementEndpointUrl, qs.stringify(putData), {
       headers: {Authorization: `Bearer ${response?.data.access_token}`}
     })
   } catch (error) {
