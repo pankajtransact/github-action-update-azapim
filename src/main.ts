@@ -119,7 +119,10 @@ async function run(): Promise<void> {
 
     //PUT get response to API manager
     await axios.put(apiManagementEndpointUrl, JSON.stringify(putData), {
-      headers: {Authorization: `Bearer ${response?.data.access_token}`, 'Content-Type': 'application/json'}
+      headers: {
+        Authorization: `Bearer ${response?.data.access_token}`,
+        'Content-Type': 'application/json'
+      }
     })
   } catch (error) {
     core.setFailed(error.message)

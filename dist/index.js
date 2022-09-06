@@ -631,7 +631,7 @@ function run() {
             };
             //PUT get response to API manager
             yield axios_1.default.put(apiManagementEndpointUrl, JSON.stringify(putData), {
-                headers: { Authorization: `Bearer ${response === null || response === void 0 ? void 0 : response.data.access_token}` }
+                headers: { Authorization: `Bearer ${response === null || response === void 0 ? void 0 : response.data.access_token}`, 'Content-Type': 'application/json' }
             });
         }
         catch (error) {
