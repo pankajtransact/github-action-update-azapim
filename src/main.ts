@@ -1,6 +1,6 @@
 import * as core from '@actions/core'
 import axios from 'axios'
-//import * as fs from 'fs'
+import fs from 'fs'
 
 async function run(): Promise<void> {
   try {
@@ -53,9 +53,21 @@ async function run(): Promise<void> {
 
     let formatType = 'openapi'
     let linkType = ''
+    
+    let swaggerContent = swaggerUrl;
 
     if (swaggerPathType === 'url') {
       linkType = '-link'
+    }else{
+      //read the file from the local path
+      fs.readFile(swaggerUrl, 'utf8', (err, data) => {
+        if (err) {
+          console.error(err);
+          return;
+        }
+        swaggerContent = data;
+      });      
+      
     }
 
     if (swaggerType === 'json') {
@@ -65,14 +77,14 @@ async function run(): Promise<void> {
     }
 
     core.info('Starting to process')
-    core.info(formatType)
-    core.info(`${swaggerUrl}`)
+    core.info(`${formatType}`)
+    core.info(`${swaggerContent}`)
     core.info(`${apimPath}`)
 
     const putData = {
       properties: {
         format: `${formatType}`,
-        value: `${swaggerUrl}`,
+        value: `${swaggerContent}`,
         path: `${apimPath}`
       }
     }
