@@ -570,8 +570,8 @@ function run() {
             core.debug(`grant_type=client_credentials&client_id=${jsonObj.clientId}&client_secret=${jsonObj.clientSecret}&resource=https%3A%2F%2Fmanagement.azure.com%2F`);
             const credData = {
                 grant_type: 'client_credentials',
-                client_id: '`${jsonObj.clientId}`',
-                client_secret: '`${jsonObj.clientSecret}`',
+                client_id: `${jsonObj.clientId}`,
+                client_secret: `${jsonObj.clientSecret}`,
                 scope: 'https://management.azure.com/.default'
             };
             core.debug(JSON.stringify(credData));
