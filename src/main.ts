@@ -1,6 +1,7 @@
 import * as core from '@actions/core'
 import axios from 'axios'
 import fs from 'fs'
+import qs from 'qs'
 
 async function run(): Promise<void> {
   try {
@@ -45,8 +46,26 @@ async function run(): Promise<void> {
     core.debug(
       `grant_type=client_credentials&client_id=${jsonObj.clientId}&client_secret=${jsonObj.clientSecret}&resource=https%3A%2F%2Fmanagement.azure.com%2F`
     )
+    const credData = {
+      grant_type: 'client_credentials',
+      client_id: `${jsonObj.clientId}`,
+      client_secret: `${jsonObj.clientSecret}`,
+      scope: 'https://management.azure.com/.default'
+    }
+    
     let response = null
     try {
+      response = await axios.post(
+        `https://login.microsoftonline.com/${jsonObj.tenantId}/oauth2/v2.0/token`,
+        credData,
+        config
+      )
+      core.info(response.data)
+    } catch (err) {
+      core.error(err)
+    }
+    
+    /*try {
       response = await axios.post(
         `https://login.microsoftonline.com/${jsonObj.tenantId}/oauth2/v2.0/token`,
         `grant_type=client_credentials&client_id=${jsonObj.clientId}&client_secret=${jsonObj.clientSecret}&resource=https://management.azure.com/.default`,
@@ -55,7 +74,7 @@ async function run(): Promise<void> {
       core.info(response.data)
     } catch (err) {
       core.error(err)
-    }
+    }*/
 
     let formatType = 'openapi'
     let linkType = ''
