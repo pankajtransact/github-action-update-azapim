@@ -65,7 +65,8 @@ async function run(): Promise<void> {
           core.error(err)
           return
         }
-        swaggerContent = data
+        swaggerContent = data;
+        core.info(data);
       })
     }
 
