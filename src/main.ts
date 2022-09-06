@@ -117,6 +117,8 @@ async function run(): Promise<void> {
       }
     }
 
+    console.debug('-----------------------')
+    console.debug(JSON.stringify(putData))
     //PUT get response to API manager
     await axios.put(apiManagementEndpointUrl, JSON.stringify(putData), {
       headers: {
