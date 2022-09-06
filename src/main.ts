@@ -1,7 +1,6 @@
 import * as core from '@actions/core'
 import axios from 'axios'
 import fs from 'fs'
-import qs from 'qs'
 
 async function run(): Promise<void> {
   try {
@@ -53,11 +52,13 @@ async function run(): Promise<void> {
       scope: 'https://management.azure.com/.default'
     }
 
+    core.debug(credData)
+    
     let response = null
     try {
       response = await axios.post(
         `https://login.microsoftonline.com/${jsonObj.tenantId}/oauth2/v2.0/token`,
-        qs.stringify(credData),
+        credData,
         config
       )
       core.info(response.data)
