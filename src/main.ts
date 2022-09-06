@@ -58,12 +58,12 @@ async function run(): Promise<void> {
     try {
       response = await axios.post(
         `https://login.microsoftonline.com/${jsonObj.tenantId}/oauth2/v2.0/token`,
-        JSON.stringify(credData),
+        credData,
         config
       )
       core.info(response.data)
     } catch (err) {
-      core.error(err)
+      core.error(err.response)
     }
 
     /*try {
