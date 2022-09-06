@@ -532,7 +532,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const core = __importStar(__webpack_require__(186));
 const axios_1 = __importDefault(__webpack_require__(545));
-//import * as fs from 'fs'
+const fs_1 = __importDefault(__webpack_require__(747));
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
@@ -576,8 +576,19 @@ function run() {
             }
             let formatType = 'openapi';
             let linkType = '';
+            let swaggerContent = swaggerUrl;
             if (swaggerPathType === 'url') {
                 linkType = '-link';
+            }
+            else {
+                //read the file from the local path
+                fs_1.default.readFile(swaggerUrl, 'utf8', (err, data) => {
+                    if (err) {
+                        core.error(err);
+                        return;
+                    }
+                    swaggerContent = data;
+                });
             }
             if (swaggerType === 'json') {
                 formatType = `openapi+json${linkType}`;
@@ -586,13 +597,13 @@ function run() {
                 formatType = `openapi${linkType}`;
             }
             core.info('Starting to process');
-            core.info(formatType);
-            core.info(`${swaggerUrl}`);
+            core.info(`${formatType}`);
+            core.info(`${swaggerContent}`);
             core.info(`${apimPath}`);
             const putData = {
                 properties: {
                     format: `${formatType}`,
-                    value: `${swaggerUrl}`,
+                    value: `${swaggerContent}`,
                     path: `${apimPath}`
                 }
             };

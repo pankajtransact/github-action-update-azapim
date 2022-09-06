@@ -53,21 +53,20 @@ async function run(): Promise<void> {
 
     let formatType = 'openapi'
     let linkType = ''
-    
-    let swaggerContent = swaggerUrl;
+
+    let swaggerContent = swaggerUrl
 
     if (swaggerPathType === 'url') {
       linkType = '-link'
-    }else{
+    } else {
       //read the file from the local path
       fs.readFile(swaggerUrl, 'utf8', (err, data) => {
         if (err) {
-          core.error(err);
-          return;
+          core.error(err)
+          return
         }
-        swaggerContent = data;
-      });      
-      
+        swaggerContent = data
+      })
     }
 
     if (swaggerType === 'json') {
