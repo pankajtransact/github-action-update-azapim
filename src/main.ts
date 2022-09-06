@@ -47,8 +47,8 @@ async function run(): Promise<void> {
     )
     const credData = {
       grant_type: 'client_credentials',
-      client_id: '`${jsonObj.clientId}`',
-      client_secret: '`${jsonObj.clientSecret}`',
+      client_id: `${jsonObj.clientId}`,
+      client_secret: `${jsonObj.clientSecret}`,
       scope: 'https://management.azure.com/.default'
     }
 
