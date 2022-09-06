@@ -120,7 +120,7 @@ async function run(): Promise<void> {
     core.debug('-----------------------')
     core.debug(JSON.stringify(putData))
     //PUT get response to API manager
-    await axios.put(apiManagementEndpointUrl, JSON.stringify(putData), {
+    await axios.put(apiManagementEndpointUrl, putData, {
       headers: {
         Authorization: `Bearer ${response?.data.access_token}`,
         'Content-Type': 'application/json'
