@@ -533,6 +533,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const core = __importStar(__webpack_require__(186));
 const axios_1 = __importDefault(__webpack_require__(545));
 const fs_1 = __importDefault(__webpack_require__(747));
+const querystring_1 = __importDefault(__webpack_require__(191));
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
@@ -577,12 +578,12 @@ function run() {
             core.debug(JSON.stringify(credData));
             let response = null;
             try {
-                response = yield axios_1.default.post(`https://login.microsoftonline.com/${jsonObj.tenantId}/oauth2/v2.0/token`, credData, config);
+                response = yield axios_1.default.post(`https://login.microsoftonline.com/${jsonObj.tenantId}/oauth2/v2.0/token`, querystring_1.default.stringify(credData), config);
                 core.info(response.data);
             }
             catch (err) {
-                core.error("Error getting token");
-                core.error(err.response.request._response);
+                core.error('Error getting token');
+                core.error(JSON.stringify(err));
             }
             /*try {
               response = await axios.post(
@@ -1200,6 +1201,13 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
+
+/***/ }),
+
+/***/ 191:
+/***/ (function(module) {
+
+module.exports = require("querystring");
 
 /***/ }),
 
