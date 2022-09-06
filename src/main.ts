@@ -1,7 +1,7 @@
 import * as core from '@actions/core'
 import axios from 'axios'
 import fs from 'fs'
-import qa from 'qs'
+import qs from 'qs'
 
 async function run(): Promise<void> {
   try {
