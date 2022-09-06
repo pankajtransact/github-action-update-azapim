@@ -589,7 +589,7 @@ function run() {
                     swaggerContent = err;
                 }
             }
-            core.info(`${swaggerContent}`);
+            core.debug(`${swaggerContent}`);
             if (swaggerType === 'json') {
                 formatType = `openapi+json${linkType}`;
             }
@@ -597,9 +597,10 @@ function run() {
                 formatType = `openapi${linkType}`;
             }
             core.info('Starting to process');
-            core.info(`${formatType}`);
-            core.info(`${swaggerContent}`);
-            core.info(`${apimPath}`);
+            core.debug(`${formatType}`);
+            core.debug(`${swaggerContent}`);
+            core.debug(`${apimPath}`);
+            core.debug(`${response === null || response === void 0 ? void 0 : response.data.access_token}`);
             const putData = {
                 properties: {
                     format: `${formatType}`,
