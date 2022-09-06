@@ -60,13 +60,11 @@ async function run(): Promise<void> {
       linkType = '-link'
     } else {
       //read the file from the local path
-      swaggerContent = fs.readFile(swaggerUrl, 'utf8', (err, data) => {
-        if (err) {
-          core.error(err)
-          return err
-        }
-        return data
-      })
+      try {
+        swaggerContent = fs.readFileSync(swaggerUrl, 'utf8')
+      } catch (err) {
+        swaggerContent = err
+      }      
     }
     
     core.info(`${swaggerContent}`);
