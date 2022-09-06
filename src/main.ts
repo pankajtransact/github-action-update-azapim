@@ -64,10 +64,10 @@ async function run(): Promise<void> {
         swaggerContent = fs.readFileSync(swaggerUrl, 'utf8')
       } catch (err) {
         swaggerContent = err
-      }      
+      }
     }
-    
-    core.info(`${swaggerContent}`);
+
+    core.info(`${swaggerContent}`)
 
     if (swaggerType === 'json') {
       formatType = `openapi+json${linkType}`

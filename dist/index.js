@@ -582,15 +582,14 @@ function run() {
             }
             else {
                 //read the file from the local path
-                fs_1.default.readFile(swaggerUrl, 'utf8', (err, data) => {
-                    if (err) {
-                        core.error(err);
-                        return;
-                    }
-                    swaggerContent = data;
-                    core.info(data);
-                });
+                try {
+                    swaggerContent = fs_1.default.readFileSync(swaggerUrl, 'utf8');
+                }
+                catch (err) {
+                    swaggerContent = err;
+                }
             }
+            core.info(`${swaggerContent}`);
             if (swaggerType === 'json') {
                 formatType = `openapi+json${linkType}`;
             }
