@@ -624,9 +624,9 @@ function run() {
             core.debug(`${response === null || response === void 0 ? void 0 : response.data.access_token}`);
             const putData = {
                 properties: {
-                    format: `'${formatType}'`,
-                    value: `'${swaggerContent}'`,
-                    path: `'${apimPath}'`
+                    format: `${formatType}`,
+                    value: `${swaggerContent}`,
+                    path: `${apimPath}`
                 }
             };
             core.debug('-----------------------');
