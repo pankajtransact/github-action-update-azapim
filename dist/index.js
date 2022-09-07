@@ -640,9 +640,7 @@ function run() {
             });
         }
         catch (error) {
-            core.error(error.response.data);
-            core.error(error.response.headers);
-            core.error(error.response.status);
+            core.error(error);
             core.setFailed(error.message);
         }
     });
